@@ -19,8 +19,8 @@ Vagrant.configure("2") do |config|
     mysql.vm.provision :shell, :path => "Vagrant-setup/bootstrap.sh"
 
     # PostgreSQL Server port forwarding
-    mysql.vm.network "forwarded_port", guest: 5432, host: 5432
-    mysql.vm.network "private_network", ip: "192.168.205.10"
+    mysql.vm.network "forwarded_port", guest: 3306, host: 3306
+    mysql.vm.network "private_network", ip: "192.168.205.22"
   end
 
   config.vm.provider "virtualbox" do |vb|

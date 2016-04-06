@@ -1,7 +1,6 @@
 package com.sales.domain;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 /**
  * Created by Sigora on 04.04.2016.
@@ -27,10 +26,10 @@ public class Customer {
     private String phone2;
 
     @Column(name = "credit_limit")
-    private BigDecimal creditLimit;
+    private Double creditLimit;
 
     @Column(name = "current_credit")
-    private BigDecimal currentCredit;
+    private Double currentCredit;
 
     public Long getId() {
         return id;
@@ -72,19 +71,19 @@ public class Customer {
         this.phone2 = phone2;
     }
 
-    public BigDecimal getCreditLimit() {
+    public Double getCreditLimit() {
         return creditLimit;
     }
 
-    public void setCreditLimit(BigDecimal creditLimit) {
+    public void setCreditLimit(Double creditLimit) {
         this.creditLimit = creditLimit;
     }
 
-    public BigDecimal getCurrentCredit() {
+    public Double getCurrentCredit() {
         return currentCredit;
     }
 
-    public void setCurrentCredit(BigDecimal currentCredit) {
+    public void setCurrentCredit(Double currentCredit) {
         this.currentCredit = currentCredit;
     }
 

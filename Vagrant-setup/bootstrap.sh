@@ -7,3 +7,5 @@ echo "mysql-server-5.5 mysql-server/root_password_again password sale" | debconf
 apt-get -y install mysql-server-5.5
 
 sudo mysql_install_db
+
+mysql -uroot -psale -e "create database sale"
