@@ -10,6 +10,9 @@ import java.util.List;
 /**
  * Created by Sigora on 04.04.2016.
  */
+
+@Entity
+@Table(name = "sale_order")
 public class Order {
 
     @Id
