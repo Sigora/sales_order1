@@ -24,7 +24,7 @@ import java.util.List;
 @SpringApplicationConfiguration(classes = SalesOrderTestApp2Application.class)
 @Transactional
 @Rollback(true)
-public class ProductDaoTest {
+public class ProductDaoTest extends GenericTest{
 
     @Autowired
     private ProductDao productDao;
@@ -79,13 +79,4 @@ public class ProductDaoTest {
         return products;
     }
 
-    private Product createProduct(){
-        Product product = new Product();
-        product.setCode("code");
-        product.setDescription("description");
-        product.setPrice(99.9);
-        product.setQuantity(99L);
-
-        return product;
-    }
 }

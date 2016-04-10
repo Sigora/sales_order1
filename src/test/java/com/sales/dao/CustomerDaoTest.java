@@ -21,7 +21,7 @@ import java.util.List;
 @SpringApplicationConfiguration(classes = SalesOrderTestApp2Application.class)
 @Transactional
 @Rollback(true)
-public class CustomerDaoTest {
+public class CustomerDaoTest extends GenericTest{
 
     @Autowired
     private CustomerDao customerDao;
@@ -83,14 +83,4 @@ public class CustomerDaoTest {
         return customers;
     }
 
-    private Customer createCustomer(){
-        Customer customer = new Customer();
-        customer.setCode("code");
-        customer.setName("name");
-        customer.setPhone1("123456789");
-        customer.setCreditLimit(2000.0);
-        customer.setCurrentCredit(0.0);
-
-        return customer;
-    }
 }

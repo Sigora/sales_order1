@@ -1,10 +1,11 @@
 package com.sales.domain;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -19,18 +20,27 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @Column(name = "number1")
+    private String number;
+
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "customer_id")
-    @JsonBackReference
     private Customer customer;
 
-    @ManyToMany(cascade=CascadeType.ALL)
-    @JoinTable(name="products_in_order", joinColumns=@JoinColumn(name="order_id"),
-            inverseJoinColumns=@JoinColumn(name="product_id"))
-    private List<Product> productList;
+    @JsonManagedReference
+    @OneToMany(mappedBy = "order", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    private List<ProductsInOrder> productList = new ArrayList<>();
 
     public Long getId() {
         return id;
+    }
+
+    public String getNumber() {
+        return number;
+    }
+
+    public void setNumber(String number) {
+        this.number = number;
     }
 
     public void setId(Long id) {
@@ -45,11 +55,11 @@ public class Order {
         this.customer = customer;
     }
 
-    public List<Product> getProductList() {
+    public List<ProductsInOrder> getProductList() {
         return productList;
     }
 
-    public void setProductList(List<Product> productList) {
+    public void setProductList(List<ProductsInOrder> productList) {
         this.productList = productList;
     }
 

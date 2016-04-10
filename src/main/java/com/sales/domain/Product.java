@@ -4,7 +4,6 @@ import org.apache.commons.lang3.builder.EqualsBuilder;
 import org.apache.commons.lang3.builder.HashCodeBuilder;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 
 /**
  * Created by Sigora on 04.04.2016.

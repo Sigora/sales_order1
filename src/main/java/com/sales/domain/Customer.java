@@ -19,6 +19,9 @@ public class Customer {
     @Column(name = "name")
     private String name;
 
+    @Column(name = "address")
+    private String address;
+
     @Column(name = "phone1")
     private String phone1;
 
@@ -30,6 +33,11 @@ public class Customer {
 
     @Column(name = "current_credit")
     private Double currentCredit;
+
+    @PrePersist
+    public void prePersist(){
+        currentCredit = 0.0;
+    }
 
     public Long getId() {
         return id;
@@ -85,6 +93,14 @@ public class Customer {
 
     public void setCurrentCredit(Double currentCredit) {
         this.currentCredit = currentCredit;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     @Override
